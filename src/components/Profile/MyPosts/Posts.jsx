@@ -3,10 +3,15 @@ import Post from './Post/Post';
 
 const Posts = () => {
     return (
-        <div>My posts
+        <div className={c.postsBlock}>
+            <h3>My posts</h3>
             <div>
-                <textarea cols="30" rows="3"></textarea>
-                <button>Add Post</button>
+                <div>
+                    <textarea cols="30" rows="3"></textarea>
+                </div>
+                <div>
+                    <button>Add Post</button>
+                </div>
             </div>
             <div className={c.posts}>
                 <Post message="I learn JS with IT-Kamasutra!" like_counter="55" />
