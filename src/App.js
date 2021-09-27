@@ -20,8 +20,11 @@ const App = (props) => {
           <Route path="/dialogs" component={Dialogs} />
           заменили т.к. не сможем в таком случае передать инфу через пропсы*/}
 
-          <Route path="/profile" render={ () => <Profile state={props.state.profilePage} addPost={props.addPost} /> } />
-          <Route path="/dialogs" render={ () => <Dialogs state={props.state.dialogsPage} /> } />
+          <Route path="/profile" render={() => <Profile 
+            state={props.state.profilePage}
+            addPost={props.addPost} 
+            updateNewPostText={props.updateNewPostText} />} />
+          <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogsPage} />} />
 
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />

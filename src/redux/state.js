@@ -1,10 +1,13 @@
+import {renderTree} from './../render';
+
 let state = {
     profilePage: {
         postsData: [
             { id: '1', message: "I learn JS with IT-Kamasutra!", likesCount: "55" },
             { id: '2', message: "Hi, how are you?", likesCount: "10" },
             { id: '3', message: "It's my first post here!", likesCount: "15" }
-        ]
+        ],
+        newPostText: ''
     },
     dialogsPage: {
         dialogsData: [
@@ -25,14 +28,21 @@ let state = {
     }
 };
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
     let newPost = {
         id: '5',
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: '0'
     };
 
     state.profilePage.postsData.push(newPost);
+    state.profilePage.newPostText = '';
+    renderTree(state);
+};
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    renderTree(state);
 };
 
 export default state;
